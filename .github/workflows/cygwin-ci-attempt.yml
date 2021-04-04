@@ -31,15 +31,15 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           # Target platform
-          platform: # optional, default is x64
+          platform: x64 # optional, default is x64
           # Installation directory
-          install-dir: # optional, default is C:\tools\cygwin
+          install-dir: C:\tools\cygwin # optional, default is C:\tools\cygwin
           # Packages to install, separated by a space
-          packages: # optional
+          packages: dash # optional
           # Value to set as the CYGWIN environment variable
           env: # optional
           # Convert symlinks in /usr/bin to hardlinks
-          hardlinks: # optional, default is 0
+          hardlinks: 0 # optional, default is 0
     
     # Runs a single command using the runners shell
       - name: Run a one-line script
