@@ -54,7 +54,8 @@ jobs:
 
       - name: Run autoreconf
         run: |
-          dash /usr/bin/autoreconf --force --install
+          dash -c "mkdir m4"
+          dash -c "dash /usr/bin/autoreconf --force --install"
 
       - name: Configure
         run: |
