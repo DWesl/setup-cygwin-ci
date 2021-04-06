@@ -55,7 +55,7 @@ jobs:
       - name: Compile a test library
         run: |
           dash -c "gcc -Wall -Wextra src/print_hello.c -c"
-          dash -c "gcc -shared -o cyghello.dll -Wl,--out-implib=libhello.dll.a -Wl,--export-all-symbols -Wl,--enable-auto-import -Wl,--whole-archive print_hello.o -Wl,--no-whole-archive"
+          dash -c "gcc -shared -o cygprint_hello.dll -Wl,--out-implib=libprint_hello.dll.a -Wl,--export-all-symbols -Wl,--enable-auto-import -Wl,--whole-archive print_hello.o -Wl,--no-whole-archive"
 
       - name: Compile a program using that library
         run: |
