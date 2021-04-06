@@ -7,7 +7,7 @@ AC_CONFIG_SRCDIR([app/hello.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([foreign dist-bzip2 dist-xz dist-zip subdir-objects])
+AM_INIT_AUTOMAKE([foreign dist-bzip2 dist-xz subdir-objects])
 
 # Checks for programs.
 AC_PROG_CC
