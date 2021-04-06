@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+*.dll
 
 # Distribution / packaging
 .Python
@@ -127,3 +128,36 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Editor backups
+*~
+*.bak
+\#*#
+
+# Autotools ephemera
+aclocal.m4
+autom4te.cache
+Makefile.in
+configure
+config.h.in
+
+# Autotools auxiliary files
+compile
+config.guess
+config.sub
+depcomp
+missing
+install-sh
+ltmain.sh
+
+# Libtool macro sources
+libtool.m4
+ltoptions.m4
+ltsugar.m4
+ltversion.m4
+lt~obsolete.m4
+
+# Built objects
+*.o
+*.dll.a
+*.exe

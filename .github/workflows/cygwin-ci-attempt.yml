@@ -35,7 +35,7 @@ jobs:
           # Installation directory
           install-dir: C:\tools\cygwin # optional, default is C:\tools\cygwin
           # Packages to install, separated by a space
-          packages: dash gcc-core # optional
+          packages: dash gcc-core automake # optional
           # Value to set as the CYGWIN environment variable
           env: # optional
           # Convert symlinks in /usr/bin to hardlinks
@@ -52,16 +52,22 @@ jobs:
           dash -c "echo test, and deploy your project."
           dash -c "uname -o"
 
-      - name: Compile a test library
+      - name: Run autoreconf
         run: |
-          dash -c "gcc -Wall -Wextra src/print_hello.c -c"
-          dash -c "gcc -shared -o cygprint_hello.dll -Wl,--out-implib=libprint_hello.dll.a -Wl,--export-all-symbols -Wl,--enable-auto-import -Wl,--whole-archive print_hello.o -Wl,--no-whole-archive"
+          dash /usr/bin/autoreconf --force --install
 
-      - name: Compile a program using that library
+      - name: Configure
         run: |
-          dash -c "gcc -Wall -Wextra app/hello.c -c -I src/"
-          dash -c "gcc -Wall -Wextra hello.o -L./ -lprint_hello -o hello.exe"
+          dash ./configure -C
+
+      - name: Compile
+        run: |
+          dash -c "make -j4 all"
           dash -c "cygcheck ./hello.exe"
 
       - name: Run the test program
         run: dash -c "./hello.exe"
+
+      - name: Run Autotools distcheck
+        run: |
+          dash -c "make distcheck"
