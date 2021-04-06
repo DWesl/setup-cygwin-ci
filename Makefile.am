@@ -1,4 +1,4 @@
-ACLOCAL_AMFLAGS=-I m4
+# ACLOCAL_AMFLAGS=-I m4
 
 bin_PROGRAMS=hello
 lib_LTLIBRARIES=libprint_hello.la
