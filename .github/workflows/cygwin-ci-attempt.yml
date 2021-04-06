@@ -78,7 +78,7 @@ jobs:
           dash -c "cythonize3.8 --force -3 --build --inplace src/one_plux.pyx"
 
       - name: Attempt to import the extension module
-        env: |
-          PYTHONPATH=src
+        env:
+          PYTHONPATH: src
         run: |
           dash -c "python3.8 -c 'import one_plus; print([one_plus.one_plus(i) for i in range(10)])'"
