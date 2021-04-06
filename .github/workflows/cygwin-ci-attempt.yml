@@ -35,7 +35,7 @@ jobs:
           # Installation directory
           install-dir: C:\tools\cygwin # optional, default is C:\tools\cygwin
           # Packages to install, separated by a space
-          packages: dash # optional
+          packages: dash gcc-core # optional
           # Value to set as the CYGWIN environment variable
           env: # optional
           # Convert symlinks in /usr/bin to hardlinks
@@ -51,3 +51,9 @@ jobs:
           dash -c "echo Add other actions to build,"
           dash -c "echo test, and deploy your project."
           dash -c "uname -o"
+
+      - name: Compile a test program
+        run: dash -c "gcc -Wall -Wextra app/hello.c -o hello.exe
+
+      - name: Run the test program
+        run: dash -c "./hello.exe"
