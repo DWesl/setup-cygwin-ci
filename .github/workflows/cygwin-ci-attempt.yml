@@ -53,7 +53,7 @@ jobs:
           dash -c "uname -o"
 
       - name: Compile a test program
-        run: dash -c "gcc -Wall -Wextra app/hello.c -o hello.exe
+        run: dash -c "gcc -Wall -Wextra app/hello.c -o hello.exe"
 
       - name: Run the test program
         run: dash -c "./hello.exe"
