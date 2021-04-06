@@ -52,11 +52,16 @@ jobs:
           dash -c "echo test, and deploy your project."
           dash -c "uname -o"
 
-      - name: Compile a test program
+      - name: Compile a test library
         run: |
           dash -c "gcc -Wall -Wextra src/print_hello.c -c"
+          dash -c "gcc -shared -o cyghello.dll -Wl,--out-implib=libhello.dll.a -Wl,--export-all-symbols -Wl,--enable-auto-import -Wl,--whole-archive print_hello.o -Wl,--no-whole-archive"
+
+      - name: Compile a program using that library
+        run: |
           dash -c "gcc -Wall -Wextra app/hello.c -c -I src/"
-          dash -c "gcc -Wall -Wextra hello.o print_hello.o -o hello.exe"
+          dash -c "gcc -Wall -Wextra hello.o -L./ -lprint_hello -o hello.exe"
+          dash -c "cygcheck ./hello.exe"
 
       - name: Run the test program
         run: dash -c "./hello.exe"
