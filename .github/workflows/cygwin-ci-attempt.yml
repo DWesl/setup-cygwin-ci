@@ -35,7 +35,7 @@ jobs:
           # Installation directory
           install-dir: C:\tools\cygwin # optional, default is C:\tools\cygwin
           # Packages to install, separated by a space
-          packages: dash gcc-core automake libtool python38-cython # optional
+          packages: dash gcc-core automake libtool python38-cython python38-devel # optional
           # Value to set as the CYGWIN environment variable
           env: # optional
           # Convert symlinks in /usr/bin to hardlinks
