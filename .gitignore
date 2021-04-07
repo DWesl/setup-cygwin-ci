@@ -165,3 +165,4 @@ lt~obsolete.m4
 *.o
 *.dll.a
 *.exe
+*.mod
