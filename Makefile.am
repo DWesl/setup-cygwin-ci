@@ -14,3 +14,5 @@ hello_SOURCES=app/hello.c
 hello_LDADD=libprint_hello.la
 
 AM_CPPFLAGS=-I@top_srcdir@/src
+
+MOSTLYCLEANFILES=multiply_two.mod
