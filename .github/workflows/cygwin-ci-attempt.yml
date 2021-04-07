@@ -64,7 +64,7 @@ jobs:
       - name: Compile
         run: |
           dash -c "make -j4 all"
-          dash -c "cygcheck ./hello.exe"
+          cygcheck ./hello.exe
 
       - name: Run the test program
         run: dash -c "./hello.exe"
@@ -75,7 +75,9 @@ jobs:
 
       - name: Compile Cython extension module
         run: |
-          dash -c "cythonize3.8 --force -3 --build --inplace src/one_plux.pyx"
+          dash -c "cythonize3.8 --force -3 --build --inplace src/one_plus.pyx"
+          dash -c "ls -l src/"
+          dash -c "cygcheck src/one_plus*.dll"
 
       - name: Attempt to import the extension module
         env:
