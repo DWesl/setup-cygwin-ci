@@ -11,11 +11,13 @@ AM_INIT_AUTOMAKE([foreign dist-bzip2 dist-xz subdir-objects])
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_FC
 
 # Checks for libraries.
 LT_INIT()
 
 # Checks for header files.
+AC_CHECK_HEADERS([stdio.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
