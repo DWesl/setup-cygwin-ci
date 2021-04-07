@@ -129,6 +129,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Cython generated files
+one_plus.c
+one_plus.html
+
 # Editor backups
 *~
 *.bak
