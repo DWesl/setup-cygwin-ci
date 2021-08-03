@@ -56,6 +56,14 @@ jobs:
         run: |
           dash -c "which git"
           dash -c "/usr/bin/git fetch --all -p"
+          
+      - name: Check git
+        if: failure()
+        run: |
+          dash -c "ls -l /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
+          dash -c "file /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
+          dash -c "cygcheck /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
+          dash -c "ldd /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
 
       - name: Run autoreconf
         run: |
