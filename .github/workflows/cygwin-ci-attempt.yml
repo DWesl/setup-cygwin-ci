@@ -51,6 +51,10 @@ jobs:
           dash -c "echo Add other actions to build,"
           dash -c "echo test, and deploy your project."
           dash -c "uname -o"
+          
+      - name: Run git fetch
+        run: |
+          dash -c "git fetch --all -p"
 
       - name: Run autoreconf
         run: |
