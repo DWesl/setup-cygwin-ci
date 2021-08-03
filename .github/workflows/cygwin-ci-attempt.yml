@@ -52,11 +52,6 @@ jobs:
           dash -c "echo test, and deploy your project."
           dash -c "uname -o"
           
-      - name: Link libidn11 to libidn12
-        run: |
-          dash -c "ln -sf /usr/bin/cygidn-12.dll /usr/bin/cygidn-11.dll"
-          dash -c "ls -l /usr/bin/cygidn*"
-          
       - name: Run git fetch
         run: |
           dash -c "which git"
