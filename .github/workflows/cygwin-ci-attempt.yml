@@ -35,7 +35,7 @@ jobs:
           # Installation directory
           install-dir: C:\tools\cygwin # optional, default is C:\tools\cygwin
           # Packages to install, separated by a space
-          packages: dash gcc-core gcc-fortran automake libtool python38-cython python38-devel python38-tox python38-virtualenv python38-distlib python38-numpy
+          packages: dash gcc-core gcc-fortran automake libtool python38-cython python38-devel python38-tox python38-virtualenv python38-distlib python38-numpy git
           # Value to set as the CYGWIN environment variable
           env: # optional
           # Convert symlinks in /usr/bin to hardlinks
@@ -54,7 +54,8 @@ jobs:
           
       - name: Run git fetch
         run: |
-          dash -c "git fetch --all -p"
+          dash -c "which git"
+          dash -c "/usr/bin/git fetch --all -p"
 
       - name: Run autoreconf
         run: |
