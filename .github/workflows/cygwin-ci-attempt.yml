@@ -35,7 +35,7 @@ jobs:
           # Installation directory
           install-dir: C:\tools\cygwin # optional, default is C:\tools\cygwin
           # Packages to install, separated by a space
-          packages: dash gcc-core gcc-fortran automake libtool python38-cython python38-devel python38-tox python38-virtualenv python38-distlib python38-numpy
+          packages: dash gcc-core gcc-fortran automake libtool python38-cython python38-devel python38-tox python38-virtualenv python38-distlib python38-numpy git
           # Value to set as the CYGWIN environment variable
           env: # optional
           # Convert symlinks in /usr/bin to hardlinks
@@ -51,6 +51,19 @@ jobs:
           dash -c "echo Add other actions to build,"
           dash -c "echo test, and deploy your project."
           dash -c "uname -o"
+          
+      - name: Run git fetch
+        run: |
+          dash -c "which git"
+          dash -c "/usr/bin/git fetch --all -p"
+          
+      - name: Check git
+        if: failure()
+        run: |
+          dash -c "ls -l /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
+          dash -c "file /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
+          dash -c "cygcheck /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
+          dash -c "ldd /usr/bin/git /usr/libexec/git-core/git-remote-https.exe"
 
       - name: Run autoreconf
         run: |
